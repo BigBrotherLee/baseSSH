@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="default" extends="struts-default" namespace="/">
+		<!-- 下面这一句设置是2.5版本新加的，用来允许通配符动态调用方法 -->
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+	</package>
+	<include file="struts/*.xml"></include>
+</struts>

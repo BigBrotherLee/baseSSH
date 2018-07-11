@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="testDAO" class="com.example.dao.impl.TestDAOImpl">
+		<property name="hibernateTemplate" ref="hTemplate"></property>
+	</bean>
+	
+	<bean id="testService" class="com.example.service.impl.TestServiceImpl">
+		<property name="testDAO" ref="testDAO"></property>
+	</bean>
+	
+	<bean id="testAction" class="com.example.web.TestAction" scope="prototype">
+		<property name="testService" ref="testService"></property>
+	</bean>
+</beans>
